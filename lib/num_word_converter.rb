@@ -1,4 +1,4 @@
-require "converter/version"
+require "num_word_converter/version"
 
 module Converter
   class EnglishNumber

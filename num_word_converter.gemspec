@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'converter/version'
+require 'num_word_converter/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "converter"
+  spec.name          = "num_word_converter"
   spec.version       = Converter::VERSION
   spec.authors       = ["qtotuan"]
   spec.email         = ["quynh.totuan@gmail.com"]
