@@ -1,6 +1,5 @@
 require "bundler/setup"
-require "converter"
-require_relative '../lib/num_word_converter'
+require "num_word_converter"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
