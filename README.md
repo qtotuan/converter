@@ -1,6 +1,6 @@
 # Converter
 
-Translate integers into natural language English.
+Translate integers into natural language English (range -99 to 99).
 
 ## Installation
 

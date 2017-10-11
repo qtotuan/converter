@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["qtotuan"]
   spec.email         = ["quynh.totuan@gmail.com"]
 
-  spec.summary       = %q{A gem for converting numbers into English words}
+  spec.summary       = %q{A gem for converting numbers into English words (-99 to 99)}
   spec.homepage      = "https://github.com/qtotuan/converter"
   spec.license       = "MIT"
 
