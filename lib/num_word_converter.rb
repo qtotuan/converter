@@ -22,14 +22,15 @@ module Converter
     def in_english
       string = ""
 
-      if @value === 0
-        return "zero"
-      end
+      # remove decimals
+      @value > 0 ? @value = @value.floor : @value = @value.ceil
 
+      # add "negative" prefix for anything < 0
       if @value < 0
         string = "negative "
         @value = @value.abs
       end
+
 
       # return numbers from 1-19 with simple lookup
       if @@specials[@value]
@@ -42,11 +43,11 @@ module Converter
       end
 
       # for full tens, like 30
-      string = string + get_tens((@value/10).abs.floor)
+      string = string + get_tens((@value/10).floor)
 
       # for tens with remainder, like 32
       if @value % 10 > 0
-        string = string + "-" + get_specials((@value % 10).abs.floor)
+        string = string + "-" + get_specials((@value % 10).floor)
       end
 
       return string
