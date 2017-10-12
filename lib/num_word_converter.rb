@@ -31,7 +31,6 @@ module Converter
         @value = @value.abs
       end
 
-
       # return numbers from 1-19 with simple lookup
       if @@specials[@value]
         return string + @@specials[@value]
@@ -51,7 +50,6 @@ module Converter
       end
 
       return string
-
     end
   end
 end

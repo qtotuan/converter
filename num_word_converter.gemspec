@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["quynh.totuan@gmail.com"]
 
   spec.summary       = %q{A gem for converting numbers into English words (-99 to 99)}
-  spec.homepage      = "https://github.com/qtotuan/converter"
+  spec.homepage      = "https://github.com/qtotuan/num_word_converter"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
