@@ -1,24 +1,18 @@
 require "num_word_converter/version"
 require "num_word_converter/english_dictionaries"
 
-
 module Converter
   class EnglishNumber
 
-    @@singles = English::SINGLES
-    @@teens = English::TEENS
+    @@specials = English::SPECIALS
     @@tens = English::TENS
 
     def initialize(value)
       @value = value
     end
 
-    def get_singles(val)
-      @@singles[val] ? @@singles[val] : ""
-    end
-
-    def get_teens(val)
-      @@teens[val] ? @@teens[val] : ""
+    def get_specials(val)
+      @@specials[val] ? @@specials[val] : ""
     end
 
     def get_tens(val)
@@ -27,8 +21,6 @@ module Converter
 
     def in_english
       string = ""
-
-
 
       if @value === 0
         return "zero"
@@ -39,27 +31,26 @@ module Converter
         @value = @value.abs
       end
 
-      if @value < 10
-        return string + get_singles(@value)
+      # return numbers from 1-19 with simple lookup
+      if @@specials[@value]
+        return string + @@specials[@value]
       end
 
-      if @value > 10 && @value < 20
-        return string + get_teens(@value)
-      end
-
+      # return nil for numbers > 99
       if @value/10 >= 10
         return nil
       end
 
+      # for full tens, like 30
       string = string + get_tens((@value/10).abs.floor)
 
+      # for tens with remainder, like 32
       if @value % 10 > 0
-        string = string + "-" + get_singles((@value % 10).abs.floor)
+        string = string + "-" + get_specials((@value % 10).abs.floor)
       end
 
       return string
 
     end
-
   end
 end
