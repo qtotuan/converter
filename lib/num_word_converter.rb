@@ -21,8 +21,6 @@ module Converter
     end
 
     def get_tens(value)
-      return @@specials[value] if @@specials[value]
-
       result = ""
       remainder = value % 10
       tens = (value - remainder) / 10
@@ -37,7 +35,6 @@ module Converter
       # remove decimals
       value > 0 ? value = value.floor : value = value.ceil
 
-      # add "negative" prefix for anything < 0
       if value < 0
         prefix = "negative "
         value = value.abs
