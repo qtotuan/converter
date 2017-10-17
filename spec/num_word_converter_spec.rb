@@ -55,7 +55,7 @@ RSpec.describe "Converter" do
       expect(Converter::EnglishNumber.new(-687.78).in_english).to eq("negative six hundred eighty-seven")
     end
 
-    it 'converts a four- to six-digit positive integer into English words' do
+    it 'converts positive thousands integer into English words' do
       expect(Converter::EnglishNumber.new(1000).in_english).to eq("one thousand")
       expect(Converter::EnglishNumber.new(1001).in_english).to eq("one thousand one")
       expect(Converter::EnglishNumber.new(1011).in_english).to eq("one thousand eleven")
@@ -64,7 +64,7 @@ RSpec.describe "Converter" do
       expect(Converter::EnglishNumber.new(1687.78).in_english).to eq("one thousand six hundred eighty-seven")
     end
 
-    it 'converts a four- to six-digit negative integer into English words' do
+    it 'converts negative thousands into English words' do
       expect(Converter::EnglishNumber.new(-1000).in_english).to eq("negative one thousand")
       expect(Converter::EnglishNumber.new(-1001).in_english).to eq("negative one thousand one")
       expect(Converter::EnglishNumber.new(-1011).in_english).to eq("negative one thousand eleven")
@@ -81,6 +81,27 @@ RSpec.describe "Converter" do
       expect(Converter::EnglishNumber.new(1369687).in_english).to eq("one million three hundred sixty-nine thousand six hundred eighty-seven")
       expect(Converter::EnglishNumber.new(1369687.78).in_english).to eq("one million three hundred sixty-nine thousand six hundred eighty-seven")
       expect(Converter::EnglishNumber.new(961349687).in_english).to eq("nine hundred sixty-one million three hundred fourty-nine thousand six hundred eighty-seven")
+    end
+
+    it 'converts negative millions into English words' do
+      expect(Converter::EnglishNumber.new(-1000000).in_english).to eq("negative one million")
+      expect(Converter::EnglishNumber.new(-1000001).in_english).to eq("negative one million one")
+      expect(Converter::EnglishNumber.new(-1000011).in_english).to eq("negative one million eleven")
+      expect(Converter::EnglishNumber.new(-1000023).in_english).to eq("negative one million twenty-three")
+      expect(Converter::EnglishNumber.new(-1369687).in_english).to eq("negative one million three hundred sixty-nine thousand six hundred eighty-seven")
+      expect(Converter::EnglishNumber.new(-1369687.78).in_english).to eq("negative one million three hundred sixty-nine thousand six hundred eighty-seven")
+      expect(Converter::EnglishNumber.new(-961349687).in_english).to eq("negative nine hundred sixty-one million three hundred fourty-nine thousand six hundred eighty-seven")
+    end
+
+    it 'converts positive billions into English words' do
+      expect(Converter::EnglishNumber.new(1000000000).in_english).to eq("one billion")
+      expect(Converter::EnglishNumber.new(1000000001).in_english).to eq("one billion one")
+      expect(Converter::EnglishNumber.new(1000000011).in_english).to eq("one billion eleven")
+      expect(Converter::EnglishNumber.new(1000000023).in_english).to eq("one billion twenty-three")
+      expect(Converter::EnglishNumber.new(1369687257).in_english).to eq("one billion three hundred sixty-nine million six hundred eighty-seven thousand two hundred fifty-seven")
+      expect(Converter::EnglishNumber.new(1369687257.345).in_english).to eq("one billion three hundred sixty-nine million six hundred eighty-seven thousand two hundred fifty-seven")
+      expect(Converter::EnglishNumber.new(415369687257).in_english).to eq("four hundred fifteen billion three hundred sixty-nine million six hundred eighty-seven thousand two hundred fifty-seven")
+      expect(Converter::EnglishNumber.new(415369687257.99).in_english).to eq("four hundred fifteen billion three hundred sixty-nine million six hundred eighty-seven thousand two hundred fifty-seven")
     end
 
   end
