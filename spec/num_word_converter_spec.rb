@@ -73,5 +73,15 @@ RSpec.describe "Converter" do
       expect(Converter::EnglishNumber.new(-1687.78).in_english).to eq("negative one thousand six hundred eighty-seven")
     end
 
+    it 'converts positive millions into English words' do
+      expect(Converter::EnglishNumber.new(1000000).in_english).to eq("one million")
+      expect(Converter::EnglishNumber.new(1000001).in_english).to eq("one million one")
+      expect(Converter::EnglishNumber.new(1000011).in_english).to eq("one million eleven")
+      expect(Converter::EnglishNumber.new(1000023).in_english).to eq("one million twenty-three")
+      expect(Converter::EnglishNumber.new(1369687).in_english).to eq("one million three hundred sixty-nine thousand six hundred eighty-seven")
+      expect(Converter::EnglishNumber.new(1369687.78).in_english).to eq("one million three hundred sixty-nine thousand six hundred eighty-seven")
+      expect(Converter::EnglishNumber.new(961349687).in_english).to eq("nine hundred sixty-one million three hundred fourty-nine thousand six hundred eighty-seven")
+    end
+
   end
 end
