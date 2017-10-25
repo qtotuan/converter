@@ -1,6 +1,6 @@
 # Num_Word_Converter
 
-Translate integers into natural language English (range -99 to 99). Decimals are truncated.
+Translate integers into natural language English up to billions (including negative and positive prefix). Decimals are truncated.
 
 ## Installation
 
@@ -28,6 +28,7 @@ Converter::EnglishNumber.new(24.5).in_english # "twenty-four"
 Converter::EnglishNumber.new(101).in_english # nil
 Converter::EnglishNumber.new(-6).in_english # "negative six"
 Converter::EnglishNumber.new(-0.5).in_english # "zero"
+Converter::EnglishNumber.new(415369687257).in_english # four hundred fifteen billion three hundred sixty-nine million six hundred eighty-seven thousand two hundred fifty-seven
 ```
 
 ## Contributing
